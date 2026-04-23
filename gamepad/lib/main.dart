@@ -59,8 +59,16 @@ class _Buttonbox extends State<ButtonBox> {
       onTapDown: (_) => setState(() => _pressionado = true),
       onTapUp: (_) => setState(() => _pressionado = false),
       onTapCancel: () => setState(() => _pressionado = false),
-
-
+      child: AnimatedContainer(
+        duration: const Duration(milliseconds: 80),
+        width: 52,
+        height: 52,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: _pressionado ? widget.cor : widget.cor.withOpacity(0.3),
+          border: Border.all(color: widget.cor, width: 2),
+        ),
+      )
     );
   }
   
